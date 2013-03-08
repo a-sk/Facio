@@ -111,7 +111,7 @@ facio is flexible, and you can hopefully tailor it how you build out project ske
  * ``-t / --template``: Path to a custom template, use `git+` to denote the path is to a git repository.
  * ``-c / --choose_template``: If you define multiple templates in the .facio.cfg use this flag to trigger a selection prompt instead of using the default template
  * ``-s / --template_settings_dir``: Custom settings directory name, see more info about this in the facio.cfg section.
- * ``--vars``: Custom variables for your templates, comma seperated var=value pairs, e.g: --vars var1=x,var2=y, would be accessed in teplates as {{ var1 }} and in dirs / file names as __var1__ / __var1__.ext (see section on this below)
+ * ``--vars``: Custom variables for your templates, comma seperated var=value pairs, e.g: --vars var1=x,var2=y, would be accessed in teplates as {{ var1 }} and in dirs / file names as {{var1}} / {{var1}}.ext (see section on this below)
  * ``-h / --help``: Show help
 
 **Expermental**
@@ -193,9 +193,9 @@ You can even rename a directory and/or file by using double underscores around t
 
 ```
 - /path/to/template/
-  - __foo__/
+  - {{foo}}/
     - another.txt
-  - __foo__.txt
+  - {{foo}}.txt
   - some_file.txt
   - some_other_file.tx
 ```
