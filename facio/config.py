@@ -74,7 +74,7 @@ class Config(object):
                    help="If you have more than 1 template defined use this "
                         "flag to override the default template, Note: "
                         "specifying -t (--template) will mean this "
-                        "flag is ignored.", action='store_true', default=None),
+                        "flag is ignored.", action='store', default=None),
             # Virtual Env Options
             Option('-E', '--venv_create', dest='venv_create',
                    action='store_true', default=None,
@@ -222,6 +222,8 @@ class Config(object):
         if (self.force_defaut_template or len(self.templates) == 1
                 or not self.choose_template):
             self.template = self.templates['default']
+        elif self.choose_template in self.templates:
+            self.template = self.templates[self.choose_template]
         else:
             self.template = self.prompt_template_choice()
 
